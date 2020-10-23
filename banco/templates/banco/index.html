@@ -1,0 +1,9 @@
+{% if lista_de_clientes %}
+    <ul>
+    {% for cliente in lista_de_clientes %}
+        <li><a href="/banco/{{ cliente.id }}/">{{ cliente.nome }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nao tem cliente.</p>
+{% endif %}
