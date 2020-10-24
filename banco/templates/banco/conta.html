@@ -1,27 +1,36 @@
+{% load static %}
+{% load operacoes %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'banco/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Josefin+Slab:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,300;1,400;1,600;1,700&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
 <body>
-    <button class="debito">Filtrar Debito</button><button class="credito">Filtrar Credito</button>
-    {% load operacoes %}
+    <div class="header">
+        <button onclick="todas()">Mostrar Todas</button><button id="botao-debito" onclick="debito()">Filtrar Debito</button><button onclick="credito()">Filtrar Credito</button>
+        <div class="saldo">
+            <h1>Extrato de 30 dias</h1>
+            Saldo antes dos 30 dias: {{ saldo_inicial }}
+        </div>
+    </div>
     <div class="todas-transacoes" id="todas-transacoesid">
-        <h1>Extrato de 30 dias</h1>
-        Saldo antes dos 30 dias: {{ conta.saldo }}
         {% for transacao in lista_de_trancaoes %}
         <ul>
             <ul>
                 <li class="nome">{{ transacao.nome }}</li>
                 <li class="empresa">{{ transacao.empresa }}</li>
-                <li class="valor">{{ transacao.valor }}</li>
+                {% if transacao.valor < 0 %}
+                    <li class="valor" style="color:red;">&nbsp;{{ transacao.valor }}</li>
+                {% else %}
+                    <li class="valor" style="color:green;">+{{ transacao.valor }}</li>
+                {% endif %}
                 <li class="horario">{{ transacao.horario }}</li>
                 <li class="metodo">
                     {% if transacao.metodo == "D" %}
@@ -29,21 +38,23 @@
                     {% elif transacao.metodo == "C" %}
                     Credito
                     {% endif %}
-                </li class="descricao">
-                <li><a href="/banco/conta/transacao/{{transacao.id}}/">Descricao</a></li>
+                </li>
             </ul>
         </ul>
         {% endfor %}
-        Saldo atual: {{ saldo_inicial }} <br>
+
     </div>
     <div class="hidden" id="transacoes-debitoid">
-        <h1>Extrato de 30 dias para débito</h1>
         {% for transacao in transacoes_debito %}
         <ul>
             <ul>
                 <li class="nome">{{ transacao.nome }}</li>
                 <li class="empresa">{{ transacao.empresa }}</li>
-                <li class="valor">{{ transacao.valor }}</li>
+                {% if transacao.valor < 0 %}
+                    <li class="valor" style="color:red;">&nbsp;{{ transacao.valor }}</li>
+                {% else %}
+                    <li class="valor" style="color:green;">+{{ transacao.valor }}</li>
+                {% endif %}
                 <li class="horario">{{ transacao.horario }}</li>
                 <li class="metodo">
                     {% if transacao.metodo == "D" %}
@@ -51,12 +62,38 @@
                     {% elif transacao.metodo == "C" %}
                     Credito
                     {% endif %}
-                </li class="descricao">
-                <li><a href="/banco/conta/transacao/{{transacao.id}}/">Descricao</a></li>
+                </li>
             </ul>
         </ul>
         {% endfor %}
-        Saldo atual: {{ saldo_inicial }} <br>
+
     </div>
+    <div class="hidden" id="transacoes-creditoid">
+        {% for transacao in transacoes_credito %}
+        <ul>
+            <ul>
+                <li class="nome">{{ transacao.nome }}</li>
+                <li class="empresa">{{ transacao.empresa }}</li>
+                {% if transacao.valor < 0 %}
+                    <li class="valor" style="color:red;">&nbsp;{{ transacao.valor }}</li>
+                {% else %}
+                    <li class="valor" style="color:green;">+{{ transacao.valor }}</li>
+                {% endif %}
+                <li class="horario">{{ transacao.horario }}</li>
+                <li class="metodo">
+                    {% if transacao.metodo == "D" %}
+                    Debito
+                    {% elif transacao.metodo == "C" %}
+                    Credito
+                    {% endif %}
+                </li>
+            </ul>
+        </ul>
+        {% endfor %}
+
+    </div>
+    <div class="saldo-bottom">Saldo atual: {{ conta.saldo }} <br></div>
+
+    <script src="{% static 'banco/script.js' %}"></script>
 </body>
 </html>
