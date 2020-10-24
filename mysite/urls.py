@@ -20,5 +20,6 @@ from banco import views
 urlpatterns = [
     path('', views.index,name='index'),
     path('banco/<int:cliente_id>/', views.detail,name='detail'),
+    path('banco/conta/<int:conta_id>/', views.conta,name='conta'),
     path('admin/', admin.site.urls),
 ]

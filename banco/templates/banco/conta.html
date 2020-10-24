@@ -1,0 +1,24 @@
+{% load operacoes %}
+
+<h1>Extrato de 30 dias</h1>
+Saldo antes dos 30 dias: {{ conta.saldo }}
+{% for transacao in conta.transacao_set.all %}
+<ul>
+    <ul>
+        <li>{{ transacao.nome }}</li>
+        <li>{{ transacao.empresa }}</li>
+        <li>{{ transacao.valor }}</li>
+        <li>{{ transacao.horario }}</li>
+        <li>
+            {% if transacao.metodo == "D" %}
+            Debito
+            {% elif transacao.metodo == "C" %}
+            Credito
+            {% endif %}
+        </li>
+        <li><a href="/banco/conta/transacao/{{transacao.id}}/">Descricao</a></li>
+    </ul>
+</ul>
+{% endfor %}
+Saldo atual: {{ saldo_inicial }} <br>
+<button class="debito">Filtrar Debito</button><button class="credito">Filtrar Credito</button>

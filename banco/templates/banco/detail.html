@@ -1,6 +1,8 @@
-<h1>{{ cliente.nome }}</h1>
+{% load operacoes %}
+
+<h1>Contas de {{ cliente.nome }}:</h1>
 <ul>
 {% for conta in cliente.conta_set.all %}
-    <li>{{ conta.saldo }}</li>
+    <li><a href="/banco/conta/{{ conta.id }}/">final {{ conta.numero_do_cartao|ultimos4Digitos }}</a></li>
 {% endfor %}
 </ul>
