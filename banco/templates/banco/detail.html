@@ -1,0 +1,6 @@
+<h1>{{ cliente.nome }}</h1>
+<ul>
+{% for conta in cliente.conta_set.all %}
+    <li>{{ conta.saldo }}</li>
+{% endfor %}
+</ul>

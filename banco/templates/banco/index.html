@@ -1,7 +1,7 @@
 {% if lista_de_clientes %}
     <ul>
     {% for cliente in lista_de_clientes %}
-        <li>{{ cliente.nome }}</li>
+    <li><a href="/banco/{{ cliente.id }}/">{{ cliente.nome }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
