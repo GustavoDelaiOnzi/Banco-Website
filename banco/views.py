@@ -21,7 +21,9 @@ def detail(request, cliente_id):
 def conta(request, conta_id):
     try:
         conta = Conta.objects.get(pk=conta_id)
-        lista_de_trancaoes = Transacao.objects.all()
+        lista_de_trancaoes = Transacao.objects.filter(conta=conta_id)
+        transacoes_debito = Transacao.objects.filter(conta=conta_id, metodo="D")
+        transacoes_credito = Transacao.objects.filter(conta=conta_id,metodo="C")
         soma_de_preco = 0
         for transacao in lista_de_trancaoes:
             soma_de_preco += transacao.valor
@@ -32,5 +34,7 @@ def conta(request, conta_id):
         'conta': conta,
         'lista_de_trancaoes': lista_de_trancaoes,
         'saldo_inicial': saldo_inicial,
+        'transacoes_debito': transacoes_debito,
+        'transacoes_credito': transacoes_credito,
     }
     return render(request, 'banco/conta.html', context)
