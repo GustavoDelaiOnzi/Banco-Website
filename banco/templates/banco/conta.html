@@ -5,7 +5,7 @@ Saldo antes dos 30 dias: {{ conta.saldo }}
 {% for transacao in conta.transacao_set.all %}
 <ul>
     <ul>
-        <li>{{ transacao.nome }}</li>
+        <li>A{{ transacao.nome }}</li>
         <li>{{ transacao.empresa }}</li>
         <li>{{ transacao.valor }}</li>
         <li>{{ transacao.horario }}</li>
