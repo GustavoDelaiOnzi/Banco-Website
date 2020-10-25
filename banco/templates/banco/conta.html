@@ -17,7 +17,7 @@
         <button onclick="todas()">Mostrar Todas</button><button id="botao-debito" onclick="debito()">Filtrar Debito</button><button onclick="credito()">Filtrar Credito</button>
         <div class="saldo">
             <h1>Extrato de 30 dias</h1>
-            Saldo antes dos 30 dias: {{ saldo_inicial }}
+            <div id="mostrarsaldo">Saldo antes dos 30 dias: {{ saldo_inicial }}</div>
         </div>
     </div>
     <div class="todas-transacoes" id="todas-transacoesid">
@@ -92,7 +92,7 @@
         {% endfor %}
 
     </div>
-    <div class="saldo-bottom">Saldo atual: {{ conta.saldo }} <br></div>
+    <div class="saldo-bottom" id="mostrarsaldo2">Saldo atual: {{ conta.saldo }} <br></div>
 
     <script src="{% static 'banco/script.js' %}"></script>
 </body>
