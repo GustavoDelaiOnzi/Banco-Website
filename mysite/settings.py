@@ -17,6 +17,8 @@ import os
 #BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
