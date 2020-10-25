@@ -71,3 +71,9 @@ html{
     position: relative;
     left: 2rem;
 }
+
+.cliente {
+    font-family: "Mulish", serif;
+    font-size: 5rem;
+    font-weight: 400;
+}
