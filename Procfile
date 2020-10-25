@@ -1,1 +1,1 @@
-web: gunicorn banco-website.wsgi
+web: gunicorn banco.wsgi
