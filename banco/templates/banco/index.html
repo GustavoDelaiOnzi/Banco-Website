@@ -12,6 +12,8 @@
         rel="stylesheet">
 </head>
 <body>
+    <div class="cliente">
+        <h1 class="cliente">Selecione o cliente:</h1>
     {% if lista_de_clientes %}
         <ul class="cliente">
         {% for cliente in lista_de_clientes %}
@@ -19,5 +21,6 @@
         {% endfor %}
         </ul>
     {% endif %}
+    </div>
 </body>
 </html>

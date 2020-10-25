@@ -72,8 +72,31 @@ html{
     left: 2rem;
 }
 
-.cliente {
+.cliente ul{
     font-family: "Mulish", serif;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 400;
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cliente a {
+    color: black;
+}
+
+.cliente a:hover {
+    color: darkorange;
+}
+
+.cliente h1 {
+    font-family: "Josefin Slab", serif;
+    font-size: 6em;
+}
+
+.cliente{
+    position: relative;
+    top: 10rem;
+    text-align: center;
 }
