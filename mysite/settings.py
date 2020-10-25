@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+# djang-heroku setting
+import django_heroku
+django_heroku.settings(locals())
+# location where you will store your static files like bootstrap
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static"),
+]
+# location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -4,7 +4,6 @@ from .models import Cliente, Conta, Transacao
 from django.template import loader
 from datetime import date
 from dateutil.relativedelta import relativedelta
-import datetime
 
 def index(request):
     lista_de_clientes = Cliente.objects.all()
