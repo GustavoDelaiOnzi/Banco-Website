@@ -19,3 +19,8 @@ Deploy para heroku:
  Para mais informações: https://www.treinaweb.com.br/blog/deploy-de-uma-aplicacao-django-no-heroku/
 
 Site online em: https://banco-website.herokuapp.com/
+
+Para adicionar dados no banco de dados: 
+ $ cd mysite
+ $ python manage.py createsuperuser
+ Acessar "http://localhost:8000/admin" com o login e senha criados
