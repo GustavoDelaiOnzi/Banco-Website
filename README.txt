@@ -24,3 +24,6 @@ Para adicionar dados no banco de dados:
  $ cd mysite
  $ python manage.py createsuperuser
  Acessar "http://localhost:8000/admin" com o login e senha criados
+
+Arquivos HTML estão localizados em: mysite\banco\templates\banco\
+Imagens, arquivos HTML e JavaScript: mysite\banco\static\banco\
