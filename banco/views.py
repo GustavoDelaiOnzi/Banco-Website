@@ -6,7 +6,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 
 def index(request):
-    lista_de_clientes = Cliente.objects.all()
+    lista_de_clientes = Cliente.objects.all() #Lista de todos os clientes
     context = {
         'lista_de_clientes': lista_de_clientes,
     }
