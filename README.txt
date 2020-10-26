@@ -1,4 +1,4 @@
-Requerimento
+Requerimentos:
  Ter Python 3.7.9 (ou versão superior) instalado e adicionar no path
 
 Requirements.txt:
