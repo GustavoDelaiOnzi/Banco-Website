@@ -1,6 +1,6 @@
-def inc(x):
-    return x + 1
+from django.urls import reverse, resolve
 
-
-def test_answer():
-    assert inc(3) == 5
+class TestUrls:
+    def test_detail_url(self):
+        path = reverse('detail', kwargs={'cliente_id': 1})
+        assert resolve(path).view_name == 'detail'
