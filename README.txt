@@ -1,4 +1,4 @@
-Requerimento
+Requerimentos:
  Ter Python 3.7.9 (ou versão superior) instalado e adicionar no path
 
 Requirements.txt:
@@ -20,5 +20,3 @@ Deploy para heroku:
  Para mais informações: https://www.treinaweb.com.br/blog/deploy-de-uma-aplicacao-django-no-heroku/
 
 Site online em: https://banco-website.herokuapp.com/
-
-  
